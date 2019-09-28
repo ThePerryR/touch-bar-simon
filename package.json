@@ -1,0 +1,17 @@
+{
+  "name": "simon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^6.0.10"
+  },
+  "dependencies": {
+    "play-sound": "^1.1.3",
+    "simon": "^0.2.3",
+    "tone": "^13.8.25"
+  }
+}
