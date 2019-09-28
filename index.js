@@ -101,8 +101,10 @@ const getToneDuration = () => {
   }
 }
 
+let buttonTimer
 const handleClickButton = (index) => {
   if (listening) {
+    clearTimeout(buttonTimer)
     const pushedButton = touchBarItems[index]
     const pushedColor = COLORS[index]
 
@@ -115,6 +117,10 @@ const handleClickButton = (index) => {
     if (input.length === pattern.length) {
       currentSpeed -= 20
       return nextRound()
+    } else {
+      buttonTimer = setTimeout(() => {
+        return gameOver()
+      }, 3000)
     }
   }
 }
@@ -126,6 +132,9 @@ const nextRound = async () => {
   await sleep(800)
   await showPattern(pattern)
   listening = true
+  buttonTimer = setTimeout(() => {
+    return gameOver()
+  }, 3000)
 }
 
 const gameOver = async () => {
